@@ -2,6 +2,8 @@ package com.arun.ContentTransfer.controller;
 
 import com.arun.ContentTransfer.model.Message;
 import com.arun.ContentTransfer.service.EmailService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MessageController {
 
+    private static final Logger log = LoggerFactory.getLogger(MessageController.class);
     @Autowired
     private EmailService emailService;
 
@@ -31,6 +34,8 @@ public class MessageController {
 
         String toEmail = parts[0];
         String message = parts[1];
+
+        log.info(message);
 
         emailService.sendEmail(toEmail, "Content Sharing", message);
 

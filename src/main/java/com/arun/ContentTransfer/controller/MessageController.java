@@ -24,8 +24,8 @@ public class MessageController {
         return "Email sent successfully!";
     }
 
-    @PostMapping("/sendEmail")
-    public String sendEmail(@RequestBody String body) {
+    @PostMapping("/sendEmail2")
+    public String sendEmail2(@RequestBody String body) {
         // Assuming plain text body is in format: toEmail:message
         String[] parts = body.split(":", 2);
         if (parts.length != 2) {

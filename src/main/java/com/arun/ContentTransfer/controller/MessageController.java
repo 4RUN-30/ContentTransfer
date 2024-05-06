@@ -27,6 +27,7 @@ public class MessageController {
     @PostMapping("/sendEmails")
     public String sendEmail2() {
         // Assuming plain text body is in format: toEmail:message
+        String body = "arunkumar061781@gmail.com:hiii"
         String[] parts = body.split(":", 2);
         if (parts.length != 2) {
             return "Invalid request format";
